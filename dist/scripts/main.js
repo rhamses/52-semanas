@@ -1,3 +1,5 @@
+'use strict';
+
 var ambSaving = ambSaving || {};
 (function (ambSaving) {
     'use strict';
@@ -18,14 +20,14 @@ var ambSaving = ambSaving || {};
                     resultTbody.children[i].parentNode.removeChild(resultTbody.children[i]);
                 }
             }
-            if (savingsMap.length / resultColumns > 0 ) {
+            if (savingsMap.length / resultColumns > 0) {
                 var arrLength = savingsMap.length / resultColumns;
                 d = arrLength;
             }
             for (var i = 0; i < arrLength; i++) {
                 resultCell = document.createElement("tr");
                 for (var c = 1; c < resultColumns; c++) {
-                    for(var prop in savingsMap[i]) {
+                    for (var prop in savingsMap[i]) {
                         if (prop == "week") {
                             value = savingsMap[i][prop] + 1;
                         } else {
@@ -36,7 +38,7 @@ var ambSaving = ambSaving || {};
                         resultElement.appendChild(resultValue);
                         resultCell.appendChild(resultElement);
                     }
-                    for(var prop in savingsMap[d]) {
+                    for (var prop in savingsMap[d]) {
                         if (prop == "week") {
                             value = savingsMap[d][prop] + 1;
                         } else {
@@ -97,8 +99,8 @@ var ambSaving = ambSaving || {};
 
     var totalAmount = document.querySelector("#amount"),
         savingsType = document.getElementsByName("savingsType");
-    
-    totalAmount.addEventListener("change", function(){
+
+    totalAmount.addEventListener("change", function () {
         ambSaving.amount(this.value);
         console.log('ambSaving', ambSaving);
         var values = ambSaving.weeklySavings();
@@ -107,19 +109,17 @@ var ambSaving = ambSaving || {};
 
     getOption(savingsType);
 
-    function getOption(savingsType){
+    function getOption(savingsType) {
         for (var i = 0; i < savingsType.length; i++) {
             if (savingsType[i].checked) {
                 ambSaving.savingOption = savingsType[i].value;
             }
-            savingsType[i].addEventListener("change", function(){
+            savingsType[i].addEventListener("change", function () {
                 ambSaving.savingOption = this.value;
                 var values = ambSaving.weeklySavings();
                 mountHtml(values);
-            })
+            });
         }
     }
-
-}(ambSaving));
-
-
+})(ambSaving);
+//# sourceMappingURL=main.js.map
