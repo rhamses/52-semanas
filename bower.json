@@ -1,0 +1,11 @@
+{
+  "name": "deposito",
+  "private": true,
+  "dependencies": {
+    "foundation-sites": "~6.0.5"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
