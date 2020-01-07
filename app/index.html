@@ -1,67 +1,139 @@
-<!doctype html>
-<html class="no-js" lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de depósito por semana</title>
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="styles/main.css">
-  </head>
-  <body>
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <ul class="dropdown menu">
-          <li class="menu-text">Calculadora de depósitos semanal</li>
-        </ul>
-      </div>
-    </div>
-    <div class="row">
-      <div class="columns large-12">
-        <div class="section-header">
-          <h3>Quanto eu quero economizar?</h3>
-          <p>Se você economizasse 1 real por semana, quanto você teria no final do ano? E se fosse mais que um real? Informe o valor e descubra.</p>
-          <form>
-            <label>Quanto quero economizar por semana?<span class="label over-input">R$</span><input type="number" name="amount" id="amount" placeholder="Exemplo: R$ 1,00" class="stat"></label>
-            <input type="radio" name="savingsType" value="incremental" id="incremental" checked="checked"><label for="incremental">Incrementar o depósito a cada semana</label>
-            <input type="radio" name="savingsType" value="step" id="step"><label for="step">Incrementar o depósito por R$ 1,00 a cada semana</label>
-            <input type="radio" name="savingsType" value="stop" id="stop"><label for="stop">Manter o valor inicial.</label>
-          </form>
-        </div>
-        <table id="tblResult" class="hover stack">
-          <thead>
-            <tr>
-              <th>Semana</th>
-              <th>Valor Depositado</th>
-              <th>Saldo da Conta</th>
-              <th>Semana</th>
-              <th>Valor Depositado</th>
-              <th>Saldo da Conta</th>
-            </tr>
-          </thead>
-          <tbody id="teste">
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <hr>
-    <script src="scripts/weeklySavings.js"></script>
-    <script src="scripts/main.js"></script>
-  </body>
-</html>
+    <!doctype html>
+    <html class="no-js" lang="pt-BR">
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora de depósito por semana</title>
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- COMMON TAGS -->
+        <meta charset="utf-8">
+        <title>Desafio 52 Semanas</title>
+        <!-- Search Engine -->
+        <meta name="description" content="O desafio ideal para criar o habito de poupar">
+        <meta name="image" content="https://desafio52semanas.com.br">
+        <!-- Schema.org for Google -->
+        <meta itemprop="name" content="Desafio 52 Semanas">
+        <meta itemprop="description" content="O desafio ideal para criar o habito de poupar">
+        <meta itemprop="image" content="https://desafio52semanas.com.br">
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Desafio 52 Semanas">
+        <meta name="twitter:description" content="O desafio ideal para criar o habito de poupar">
+        <meta name="twitter:site" content="@rhamses">
+        <meta name="twitter:creator" content="@rhamses">
+        <meta name="twitter:image:src" content="https://desafio52semanas.com.br/52-semanas.jpg">
+        <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+        <meta name="og:title" content="Desafio 52 Semanas">
+        <meta name="og:description" content="O desafio ideal para criar o habito de poupar">
+        <meta name="og:image" content="https://desafio52semanas.com.br/52-semanas.jpg">
+        <meta name="og:url" content="https://desafio52semanas.com.br">
+        <meta name="og:site_name" content="Desafio 52 Semanas">
+        <meta name="og:locale" content="pt_BR">
+        <meta name="og:type" content="website">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YZJPFPBLJ0"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { dataLayer.push(arguments); }
+          gtag('js', new Date());
+
+          gtag('config', 'G-YZJPFPBLJ0');
+        </script>
+      </head>
+      <body>
+        <main>
+          <section class="hero is-primary is-fullheight">
+            <section class="hero-body">
+              <div class="container has-text-centered">
+                <h1 class="title">DESAFIO 52 SEMANAS</h1>
+                <h2 class="sub-title">O desafio ideal para criar o habito de poupar</h2>
+                <a href="#calc" class="scrollDown">
+                  Descubrir<br>agora.
+                </a>
+              </div>
+            </section>
+          </section>
+
+          <section id="calc" class="section">
+            <div class="columns">
+              <div class="column">
+                <h3 class="title is-3">Vamos começar?</h3>
+                <p>Descubra quanto você teria ao final do ano se economizasse 1 real por semana.</p>
+                <p>
+                  Se você preferir, pode escolher outras formas de incrementar o desafio, como incrementar o depósito por semana, seja com 1 real a mais ou dobrando o valor a cada semana. 
+                </p>
+                <br><br>
+                <div class="hide is-hidden-mobile">
+                  <h3 class="title is-3">Legenda de cores?</h3>
+                  <ul class="monthList"></ul>
+                </div>
+              </div>
+              <div class="column">
+                <label for="amount" class="label">Quero economizar este valor por semana:</label>
+                <div class="columns">
+                  <div class="column">
+                    <div class="field">
+                      <div class="control currency-wrapper">
+                        <input type="number" name="amount" id="amount" placeholder="Exemplo: R$ 1,00" class="input">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="column">
+                    <div class="field">
+                      <div class="select">
+                        <select id="depositLevel" name="depositLevel">
+                          <option selected>Quero incrementar o desafio:</option>
+                          <option value="incremental">Incrementar o depósito a cada semana</option>
+                          <option value="step">Incrementar o depósito por R$ 1,00 a cada semana</option>
+                          <option value="stop">Manter o valor inicial.</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hide is-hidden-desktop">
+                  <h3 class="title is-5">Legenda de cores?</h3>
+                  <ul class="monthList"></ul>
+                </div>
+                <br>
+                <div class="table-container">
+                  <table id="tblResult" class="table is-stripped is-hoverable hide">
+                    <thead>
+                      <tr>
+                        <th>Semana</th>
+                        <th>Valor Depositado</th>
+                        <th>Saldo da Conta</th>
+                        <th>Semana</th>
+                        <th>Valor Depositado</th>
+                        <th>Saldo da Conta</th>
+                      </tr>
+                    </thead>
+                    <tbody id="teste">
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+        <hr>
+        <script src="scripts/module.js"></script>
+      </body>
+    </html>

@@ -1,7 +1,13 @@
-// bower:scss
-@import "bower_components/foundation-sites/scss/foundation.scss";
-// endbower
-@include foundation-everything;
+@import "node_modules/bulma/bulma.sass";
+
+html {
+  scroll-behavior: smooth;
+}
+
+.hero.is-primary {
+  background-color: #00d1b2;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='20' viewBox='0 0 16 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2300c7a9' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M8 0v20L0 10M16 0v10L8 0M16 10v10H8'/%3E%3C/g%3E%3C/svg%3E");
+}
 
 .browsehappy {
   margin: 0.2em 0;
@@ -95,6 +101,35 @@ body {
   width: 100%; 
 }
 
+.table {
+  thead th,
+  tbody td {
+    &:nth-child(3n) {
+      background-color: #F8FFE5;
+    }
+  }
+
+  tbody {
+    td {
+      &:first-child, 
+      &:nth-child(4) {
+        text-align: center;
+      }
+
+      &:not(:first-child):not(:nth-child(4)) {
+        text-align: right;
+
+        &::before {
+          content: 'R$ ';
+          text-align: left;
+          font-weight: bold;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
 .section-header {
   position: relative;
 }
@@ -107,4 +142,75 @@ body {
 
 #amount {
   padding-left: 2.5em; 
+}
+
+.monthList {
+  columns: 3;
+
+  li {
+    margin: .5em 0;
+  }
+}
+
+.currency-wrapper {
+  position: relative;
+
+  &::before {
+    content: "R$";
+    position: absolute;
+    padding-left: .8em;
+    padding-top: .5em;
+    z-index: 1;
+
+    color: #ccc;
+    text-transform: uppercase;
+  }
+}
+
+.hide {
+  display: none;
+  opacity: 0;
+  transition: all .5s ease-in-out;
+}
+
+.scrollDown {
+  display: block;
+  margin-top: 2em;
+
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  text-transform: uppercase;
+
+  animation: ping 1s linear 0s infinite alternate;
+
+  &:hover {
+    color: #fff;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: .5em;
+    height: 0;
+    width: 0;
+
+    border-bottom: solid 10px transparent;
+    border-left: solid 10px transparent;
+    border-right: solid 10px transparent;
+    border-top: solid 10px #fff;
+  }
+}
+
+@keyframes ping {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

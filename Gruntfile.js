@@ -38,7 +38,7 @@ module.exports = function (grunt) {
       },
       babel: {
         files: ['<%= config.app %>/scripts/{,*/}*.js'],
-        tasks: ['babel:dist']
+        tasks: ['babel:dist', 'browserify:dev']
       },
       babelTest: {
         files: ['test/spec/{,*/}*.js'],
@@ -164,6 +164,20 @@ module.exports = function (grunt) {
       }
     },
 
+    // browserfy
+    browserify: {
+      dev: {
+        files: {
+          '.tmp/scripts/module.js': ['<%= config.app %>/scripts/*.js']
+        }
+      },
+      dist: {
+        files: {
+          'dist/scripts/module.js': ['<%= config.app %>/scripts/*.js']
+        }
+      }
+    },
+
     // Compiles Sass to CSS and generates necessary files if requested
     sass: {
       options: {
@@ -252,7 +266,8 @@ module.exports = function (grunt) {
         ]
       },
       html: ['<%= config.dist %>/{,*/}*.html'],
-      css: ['<%= config.dist %>/styles/{,*/}*.css']
+      css: ['<%= config.dist %>/styles/{,*/}*.css'],
+      js: ['<%= config.dist %>/js/{,*/}*.js']
     },
 
     // The following *-min tasks produce minified files in the dist folder
@@ -304,28 +319,28 @@ module.exports = function (grunt) {
     // By default, your `index.html`'s <!-- Usemin block --> will take care
     // of minification. These next options are pre-configured if you do not
     // wish to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= config.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css',
-    //         '<%= config.app %>/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= config.dist %>/scripts/scripts.js': [
-    //         '<%= config.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
+    cssmin: {
+      dist: {
+        files: {
+          '<%= config.dist %>/styles/main.css': [
+            '.tmp/styles/{,*/}*.css',
+            '<%= config.app %>/styles/{,*/}*.css'
+          ]
+        }
+      }
+    },
+    uglify: {
+      dist: {
+        files: {
+          '<%= config.dist %>/scripts/scripts.js': [
+            '<%= config.dist %>/scripts/scripts.js'
+          ]
+        }
+      }
+    },
+    concat: {
+      dist: {}
+    },
 
     // Copies remaining files to places other tasks can use
     copy: {
@@ -355,6 +370,7 @@ module.exports = function (grunt) {
     concurrent: {
       server: [
         'babel:dist',
+        'browserify:dev',
         'sass'
       ],
       test: [
@@ -369,6 +385,7 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-browserify');
 
   grunt.registerTask('serve', 'start the server and preview your app', function (target) {
 
@@ -413,13 +430,14 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'sass',
     'postcss',
-    // 'concat',
-    // 'cssmin',
-    // 'uglify',
-    'copy:dist',
+    // 'concat:generated',
+    // 'cssmin:generated',
+    // 'uglify:generated',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'browserify:dist',
+    'copy:dist'
   ]);
 
   grunt.registerTask('default', [

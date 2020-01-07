@@ -1,4 +1,4 @@
-var ambSaving = {
+module.exports = {
   savingOption: '',
   amount: function(amount){
     this.numberAmount = parseInt(amount);
@@ -16,7 +16,6 @@ var ambSaving = {
     weeklyAmount = 0,
     savingsTotal = 0,
     savingsMap = [];
-    console.log('Comentário', weeksTotal, weekCounter, weeklyAmount, savingsTotal, savingsMap);
     while (weekCounter < weeksTotal) {
       if (savingsTotal === 0 || weeklyAmount === 0) {
           savingsTotal = this.numberAmount;
