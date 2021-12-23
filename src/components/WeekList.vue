@@ -1,0 +1,45 @@
+<template>
+  <q-timeline class="q-px-md full-width">
+    <WeekItem v-for="(week, index) in goal.weeks" :key="index" :week="{number: index, date: week.date}" :goal="goal" @swipeRight="swipeRight" @swipeLeft="swipeLeft" />
+  </q-timeline>
+</template>
+
+<style scope>
+  .q-timeline__subtitle,
+  .q-timeline__title {
+    display: none;
+  }
+</style>
+
+<script>
+  import WeekItem from '../components/WeekItem.vue'
+  import { mapMutations } from 'vuex'
+
+  export default {
+    props: {
+      goal: Object
+    },
+    components: {
+      WeekItem
+    },
+    methods: {
+      ...mapMutations('goals', ['mutPayment']),
+      swipeRight(index){
+        const payload = {
+          status: 'paid',
+          index,
+          goal: this.goal
+        }
+        this.mutPayment(payload)
+      },
+      swipeLeft(index){
+        const payload = {
+          status: 'unpaid',
+          index,
+          goal: this.goal
+        }
+        this.mutPayment(payload)
+      }
+    }
+  }
+</script>
