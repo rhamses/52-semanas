@@ -23,13 +23,14 @@
       WeekItem
     },
     methods: {
-      ...mapMutations('goals', ['mutPayment']),
+      ...mapMutations('goals', ['mutPayment', 'mutAnimation']),
       swipeRight(index){
         const payload = {
           status: 'paid',
           index,
           goal: this.goal
         }
+        this.mutAnimation(true)
         this.mutPayment(payload)
       },
       swipeLeft(index){
@@ -38,6 +39,7 @@
           index,
           goal: this.goal
         }
+        this.mutAnimation(false)
         this.mutPayment(payload)
       }
     }

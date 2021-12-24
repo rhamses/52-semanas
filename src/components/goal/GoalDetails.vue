@@ -1,6 +1,6 @@
 <template>
   <q-page-container class="q-mb-xl" style="padding-top: 50px">
-      <GoalBalance :goal="goal" :state="stateAnim" />
+      <GoalBalance :goal="goal" />
       <WeekList :goal="goal" @swipeRight="swipeRight" @swipeLeft="swipeLeft" />
   </q-page-container>
 </template>
@@ -12,27 +12,9 @@
     props: {
       goal: Object
     },
-    data(){
-      return {
-        stateAnim: null
-      }
-    },
-    watch: {
-      stateAnim(value){
-        return value;
-      }
-    },
     components: {
       WeekList,
       GoalBalance
-    },
-    methods: {
-      swipeRight(){
-        this.stateAnim = true;
-      },
-      swipeLeft(){
-        this.stateAnim = false;
-      }
     }
   }
 </script>

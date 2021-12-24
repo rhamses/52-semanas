@@ -11,10 +11,10 @@
         <Slide3 />
       </q-tab-panel>
       <q-tab-panel name="slide4">
-        <Slide4 :runSave="runSave" />
+        <Slide4 buttonText="Começar a economizar" />
       </q-tab-panel>
     </q-tab-panels>
-    <div class="fixed-bottom full-width text-center q-mb-xl">
+    <div class="fixed-bottom full-width text-center q-mb-xl" v-if="panel != 'slide4'">
       <q-btn color="primary" @click="next" :label="buttonLabel" block :push="true" ripple size="md" icon-right="navigate_next" align="center" />
     </div>
   </q-page>

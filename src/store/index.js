@@ -1,6 +1,6 @@
 import { store } from 'quasar/wrappers'
 import { createStore } from 'vuex'
-import example from './module-example'
+import createPersistedState from "vuex-persistedstate";
 import goals from './goals'
 
 /*
@@ -14,8 +14,8 @@ import goals from './goals'
 
 export default store(function (/* { ssrContext } */) {
   const Store = createStore({
+    plugins: [createPersistedState()],
     modules: {
-      example,
       goals
     },
 

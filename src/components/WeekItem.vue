@@ -4,9 +4,10 @@
     :color="(action.color) ? action.color : 'primary' "
     >
     <q-slide-item 
-      class="full-width bg-grey-4 rounded-borders"
+      class="full-width rounded-borders"
+      :class="actionStyle.bg"
       @left="onLeft" 
-      @right="onRight" 
+      @right="onRight"
       left-color="red" 
       right-color="green"
       >
@@ -26,13 +27,13 @@
         <q-item-section>
           <section class="row full-width q-py-md" :class="active ? 'is-active' : 'is-not-active' ">
             <div class="col flex flex-center content-center">
-              <q-item-label>{{ week.number + 1 }}</q-item-label>
+              <q-item-label :class="actionStyle.text">{{ week.number + 1 }}</q-item-label>
             </div>
             <div class="col col-4  flex flex-center">
-              <q-item-label>{{ weekFormatted }}</q-item-label>
+              <q-item-label :class="actionStyle.text">{{ weekFormatted }}</q-item-label>
             </div>
             <div class="col col-6 flex flex-center">
-              <q-item-label class="font-lg">R$ <span class="text-h5">{{ installment }}</span></q-item-label>
+              <q-item-label class="font-lg" :class="actionStyle.text">R$ <span class="text-h5">{{ installment }}</span></q-item-label>
             </div>
           </section>
         </q-item-section>
@@ -73,6 +74,20 @@
         }
 
         return day + '/' + month + '/' + year
+      },
+      actionStyle(){
+        return {
+          bg: {
+            'bg-grey-4': this.action.color === null,
+            'bg-green-3': this.action.color === 'green',
+            'bg-red-3': this.action.color === 'red'
+          },
+          text: {
+            'text-blue-10': this.action.color === null,
+            'text-green-10': this.action.color === 'green',
+            'text-red-14': this.action.color === 'red'            
+          }
+        }
       }
     },
     data(){

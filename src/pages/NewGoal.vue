@@ -1,13 +1,13 @@
 <template>
   <section class="container">
-    <q-page class="flex justify-center items-start content-start" style="padding-top: 50px">
+    <q-page class="flex column align-center items-center" style="padding-top: 50px">
       <header class="q-mb-md">
         <h2 class="text-h4">What's your next goal?</h2>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
         </p>
       </header>
-      <q-form @submit="save" class="full-width q-px-md text-center" ref="form">
+      <q-form @submit="save" :class="{'q-mb-xl': buttonText == 'Adicionar meta' }" class="full-width q-px-md text-center form-goal" style="flex: 1" ref="form">
         <q-input :rules="[ val => val.length > 3 || 'Please use minimum 3 characters' ]" class="q-mb-xl" v-model="name" label="The name of your goal is..." stack-label>
           <template v-slot:prepend>
             <q-icon name="event" />
@@ -23,11 +23,20 @@
             <q-icon name="event" />
           </template>
         </q-input>
-        <q-btn v-if="buttons" type="submit" color="primary" label="Save" :push="true" ripple size="md" icon-right="done" align="center" />
+        <q-btn v-if="buttons" type="submit" color="primary" :label="buttonText" :push="true" ripple size="md" icon-right="done" align="center" />
       </q-form>
     </q-page>
   </section>
+
 </template>
+
+<style scoped>
+  .form-goal {
+    display: flex;
+    flex-direction:  column;
+    justify-content: space-around;
+  }
+</style>
 
 <script>
   import { mapMutations } from 'vuex'
@@ -41,13 +50,9 @@
         required: true,
         default: true
       },
-      runSave: {
-        type: Boolean
-      }
-    },
-    watch: {
-      runSave(value){
-        console.log("value", value);
+      buttonText: {
+        type: String,
+        default: 'Adicionar meta'
       }
     },
     data(){
@@ -93,6 +98,7 @@
           weeks: this.weeks
         }
         this.mutGoals(payload);
+        this.$router.push('/list')
       }
     }
   }
