@@ -56,6 +56,22 @@
   export default {
     name: "WeekItem",
     props: ['week', 'goal'],
+    data(){
+      return {
+        active: true,
+        action: {
+          icon: null,
+          color: null
+        }
+      }
+    },
+    mounted(){
+      if (this.week.status == 'paid') {
+        this.action.color = 'green'
+      } else if (this.week.status == 'unpaid') {
+        this.action.color = 'red'
+      }
+    },
     computed: {
       installment(){
         return Number(this.goal.stallment).toFixed(2);
@@ -87,15 +103,6 @@
             'text-green-10': this.action.color === 'green',
             'text-red-14': this.action.color === 'red'            
           }
-        }
-      }
-    },
-    data(){
-      return {
-        active: true,
-        action: {
-          icon: null,
-          color: null
         }
       }
     },

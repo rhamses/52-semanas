@@ -10,7 +10,7 @@
     <q-toolbar v-if="navigation.context === 'simple'">
         <q-btn v-if="navigation.nav" flat dense round icon="navigate_before" @click="previousPanel"  />
         <q-toolbar-title class="text-center title">
-          <b>52 week</b>
+          <b>52 week challenge</b>
         </q-toolbar-title>
         <q-btn v-if="navigation.nav" flat dense round icon="navigate_before"  class="hide-arrow"/>
       </q-toolbar>

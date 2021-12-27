@@ -1,8 +1,15 @@
+import store from '../store';
 
 const routes = [
   {
     path: '/',
     component: () => import('layouts/InitialSetting.vue'),
+    beforeEnter(to, from, next){
+      if (store().state.goals.goals.length > 0) {
+        next('/list')
+      }
+      next();
+    },
     props: {
       nav: {
         context: "simple",
@@ -30,6 +37,12 @@ const routes = [
   {
     path: '/list',
     component: () => import('layouts/InitialSetting.vue'),
+    beforeEnter(to, from, next){
+      if (store().state.goals.goals.length == 0) {
+        next('/')
+      }
+      next();
+    },
     props: {
       nav: {
         context: "goals",

@@ -2,23 +2,23 @@
   <section class="container">
     <q-page class="flex column align-center items-center" style="padding-top: 50px">
       <header class="q-mb-md">
-        <h2 class="text-h4">What's your next goal?</h2>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+        <h2 class="text-h4 text-center">Qual é a sua meta?</h2>
+        <p class="q-px-md">
+          <b>Lembre-se:</b> Crie uma meta que seja atingível ao final do período de 1 ano (52 semanas)
         </p>
       </header>
       <q-form @submit="save" :class="{'q-mb-xl': buttonText == 'Adicionar meta' }" class="full-width q-px-md text-center form-goal" style="flex: 1" ref="form">
-        <q-input :rules="[ val => val.length > 3 || 'Please use minimum 3 characters' ]" class="q-mb-xl" v-model="name" label="The name of your goal is..." stack-label>
+        <q-input :rules="[ val => val.length > 3 || 'Informe pelo menos 3 caracteres' ]" class="q-mb-xl" v-model="name" label="Ex.: Presente para o amigo secreto" placeholder="Minha meta é" stack-label>
           <template v-slot:prepend>
             <q-icon name="event" />
           </template>
         </q-input>
-        <q-input :rules="[ val => val > 0 || 'Please use only positive values' ]" :hint="hint" class="q-mb-xl" v-model="stallment" type="number" stack-label label="The amount you want to save is...">
+        <q-input :rules="[ val => val > 0 || 'Números apenas positivos' ]" :hint="hint" class="q-mb-xl" v-model="stallment" type="number" stack-label label="Por semana, posso guardar...">
           <template v-slot:prepend>
             R$
           </template>
         </q-input>
-        <q-input class="q-mb-lg" v-model="startAt" type="date" stack-label label="The amount you want to save is...">
+        <q-input class="q-mb-lg" v-model="startAt" type="date" stack-label label="Quero começar a poupar em...">
           <template v-slot:prepend>
             <q-icon name="event" />
           </template>
@@ -70,18 +70,20 @@
           start: startDate,
           end: endDate
         })
-       return weeks = weeks.map(item => {
-        return {
-          "date": item, 
-          "status": false
-        }
+        weeks = weeks.map(item => {
+          return {
+            "date": item, 
+            "status": false
+          }
        })
+       weeks.pop()
+       return weeks;
       }
     },
     watch: {
       stallment(value){
         if (value > 0) {
-          this.hint = `The total value will be of ${value * 52}`          
+          this.hint = `O valor total será de R$ ${value * 52},00 ao final das 52 semanas`          
         } else {
           this.hint = '';
         }

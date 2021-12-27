@@ -29,7 +29,7 @@
     data(){
       return {
         panel: 'slide1',
-        buttonLabel: 'Next',
+        buttonLabel: 'Avançar',
         runSave: false
       }
     },

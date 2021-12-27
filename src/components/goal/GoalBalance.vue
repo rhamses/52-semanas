@@ -1,6 +1,6 @@
 <template>
   <section class="goal__balance text-center">
-    <h2 class="text-h5"><b>Remaining Weeks: {{ remainingWeek }}</b></h2>
+    <h2 class="text-h5"><b>Semanas restantes: {{ remainingWeek }}</b></h2>
     <div class="flex flex-center">
       <lottie 
       :animationData="animationData"
@@ -20,8 +20,8 @@
         >
         <b class="text-h5">{{percentage}}%</b>
       </q-circular-progress>
-      <p class="q-mb-none q-mt-sm q-pa-none text-body1">Balance: <b>R$ {{ balance.total }}</b></p>
-      <p class="q-ma-none q-pa-none">Goal Total: <b>R$ {{goal.total}}</b></p>
+      <p class="q-mb-none q-mt-sm q-pa-none text-body1">Total: <b>R$ {{ balance.total }}</b></p>
+      <p class="q-ma-none q-pa-none">Objetivo: <b>R$ {{goal.total}}</b></p>
     </div>
   </div>
 </section>

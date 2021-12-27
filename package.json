@@ -1,8 +1,8 @@
 {
-  "name": "quasar-demo",
+  "name": "52-semanas",
   "version": "0.0.1",
-  "description": "A Quasar Framework app",
-  "productName": "Quasar App",
+  "description": "Save money every week",
+  "productName": "52 Semanas",
   "author": "Rhamses <rhamses.soares@gmail.com>",
   "private": true,
   "scripts": {
@@ -24,10 +24,12 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",
     "@quasar/app": "^3.0.0",
+    "@vue/devtools": "^5.3.4",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^7.0.0",
-    "eslint-webpack-plugin": "^2.4.0"
+    "eslint-webpack-plugin": "^2.4.0",
+    "workbox-webpack-plugin": "^6.4.2"
   },
   "browserslist": [
     "last 10 Chrome versions",

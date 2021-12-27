@@ -12,6 +12,10 @@ import goals from './goals'
  * with the Store instance.
  */
 
+// const dataState = createPersistedState({
+//   paths: ['goals', 'animation', 'deferredPrompt']
+// })
+
 export default store(function (/* { ssrContext } */) {
   const Store = createStore({
     plugins: [createPersistedState()],

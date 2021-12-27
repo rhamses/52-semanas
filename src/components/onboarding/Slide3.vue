@@ -1,8 +1,8 @@
 <template>
   <article class="text-center">
     <img src="http://placehold.it/420x190" class="full-width" alt="">
-    <h2 class="text-h4 text-center">Show How To Manage!</h2>
-    <p class="text-subtitle1 text-center q-mb-xl">Lorem ipsum, dolor, sit amet consectetur adipisicing elit. Nam, aliquid mollitia voluptatem </p>
+    <h2 class="text-h4 text-center">Acompanhe o seu <b>progresso</b> e tenha uma ajuda com lembretes!</h2>
+    <p class="text-subtitle1 text-center q-mb-xl">Cadastre a sua meta e seja lembrado a cada semana para reservar a quantia desejada. Além disso, consiga visualizar facilmente o seu progresso com o passar do tempo.</p>
   </article>
 </template>
 

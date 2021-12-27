@@ -1,6 +1,6 @@
 <template>
   <q-timeline class="q-px-md full-width">
-    <WeekItem v-for="(week, index) in goal.weeks" :key="index" :week="{number: index, date: week.date}" :goal="goal" @swipeRight="swipeRight" @swipeLeft="swipeLeft" />
+    <WeekItem v-for="(week, index) in goal.weeks" :key="index" :week="{number: index, date: week.date, status: week.status}" :goal="goal" @swipeRight="swipeRight" @swipeLeft="swipeLeft" />
   </q-timeline>
 </template>
 

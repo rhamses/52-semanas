@@ -1,6 +1,7 @@
 export default function () {
   return {
     goals: [],
-    animation: false
+    animation: false,
+    deferredPrompt: null
   }
 }

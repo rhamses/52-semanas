@@ -11,3 +11,7 @@ export function mutPayment (state, payload) {
 export function mutAnimation (state, payload) {
   state.animation = payload
 }
+
+export function mutDeferredPrompt (state, payload) {
+  state.deferredPrompt = payload
+}
