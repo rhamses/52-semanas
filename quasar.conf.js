@@ -79,8 +79,8 @@ module.exports = configure(function (ctx) {
         // key: "/Users/rhamsesalexandre/server.key"
         // cert: "./dev.quasar.pem",
         // key: "./dev.quasar-key.pem"
-        cert: "./192.168.1.129.pem",
-        key: "./192.168.1.129-key.pem"
+        cert: process.env.DEVSERVER_CERT,
+        key: process.env.DEVSERVER_CERT_KEY
       },
       port: 8080,
       // vueDevtools: true,
