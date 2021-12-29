@@ -72,13 +72,15 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://v2.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
     devServer: {
-      host: 'dev.quasar',
-      allowedHosts: ['dev.quasar', '.quasar'],
+      // host: 'dev.quasar',
+      // allowedHosts: ['dev.quasar', '.quasar'],
       https: {
         // cert: "/Users/rhamsesalexandre/server.crt",
         // key: "/Users/rhamsesalexandre/server.key"
-        cert: "./dev.quasar.pem",
-        key: "./dev.quasar-key.pem"
+        // cert: "./dev.quasar.pem",
+        // key: "./dev.quasar-key.pem"
+        cert: process.env.DEVSERVER_CERT,
+        key: process.env.DEVSERVER_CERT_KEY
       },
       port: 8080,
       // vueDevtools: true,
@@ -144,8 +146,8 @@ module.exports = configure(function (ctx) {
       },
 
       manifest: {
-        name: `52 Week Challenge`,
-        short_name: `52 Week`,
+        name: `52 Weeks Challenge`,
+        short_name: `52 Weeks`,
         description: `Save money every week`,
         display: 'standalone',
         orientation: 'portrait',
@@ -211,7 +213,7 @@ module.exports = configure(function (ctx) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: '52semanas'
+        appId: '52weeks'
       },
 
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain

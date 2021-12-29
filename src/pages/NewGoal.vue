@@ -41,6 +41,7 @@
 <script>
   import { mapMutations } from 'vuex'
   import eachWeekOfInterval from 'date-fns/eachWeekOfInterval'
+  import add from 'date-fns/add'
 
   export default {
     name: "NewGoal",
@@ -64,12 +65,14 @@
     },
     computed: {
       weeks(){
-       const startDate = new Date(this.startAt.split('-')[0], this.startAt.split('-')[1], this.startAt.split('-')[2]);
-       const endDate = new Date(Number(this.startAt.split('-')[0]) + 1, this.startAt.split('-')[1], this.startAt.split('-')[2]);
+       const startDate = new Date(this.startAt);
+       const endDate = add(startDate,{years: 1});
+
        let weeks = eachWeekOfInterval({
           start: startDate,
           end: endDate
         })
+       
         weeks = weeks.map(item => {
           return {
             "date": item, 
