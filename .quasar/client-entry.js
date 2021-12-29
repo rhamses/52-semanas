@@ -56,7 +56,7 @@ if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream && window.n
 }
 
 
-const publicPath = `/`
+const publicPath = ``
 
 
 async function start ({ app, router, store, storeKey }) {

@@ -44,7 +44,7 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://v2.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
-      vueRouterMode: 'history', // available values: 'hash', 'history'
+      vueRouterMode: 'hash', // available values: 'hash', 'history'
 
       // transpile: false,
 
@@ -79,8 +79,8 @@ module.exports = configure(function (ctx) {
         // key: "/Users/rhamsesalexandre/server.key"
         // cert: "./dev.quasar.pem",
         // key: "./dev.quasar-key.pem"
-        cert: process.env.DEVSERVER_CERT,
-        key: process.env.DEVSERVER_CERT_KEY
+        // cert: "./192.168.1.129.pem",
+        // key: "./192.168.1.129-key.pem"
       },
       port: 8080,
       // vueDevtools: true,
