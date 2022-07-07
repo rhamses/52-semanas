@@ -3,7 +3,7 @@ The 52 Week Challenge is the very first step for anyone who wants to save money,
 
 This 52 Week Challenge repo is a Web App (PWA) that helps you with that. It runs everything directly in your browser, without any servers, databases or third party trackers of any kind. All you need to do is access the project's URL and starting using. It can notified you near the stallment's due date, warning you if there's something unpaid and send you motivational messages to boots the morale.
 
-
+https://user-images.githubusercontent.com/1155396/177766049-0334ce17-2988-47e3-8671-cf47ead08795.mp4
 
 ## 🥞 Stack
 This project is powered by the [Quasar Framework](https://github.com/quasarframework/quasar) and all the resources used was already built-in it. 
